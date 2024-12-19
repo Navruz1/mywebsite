@@ -1,0 +1,21 @@
+# Magic Methods
+
+# w - write (перезапись)
+# r - read (чтение)
+# a - append (добавить)
+
+# field = поле для заполнения (атрибут)
+
+import os
+
+class Test:
+    def __init__(self):
+        f = open("temp.csv", "w")
+        f.write("data, more data, testing")
+        f.close()
+
+    def __del__(self):
+        os.remove("temp.csv")
+        print("Cleanup dome!")
+
+firstItem = Test()
